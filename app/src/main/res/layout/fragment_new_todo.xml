@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".NewTodoFragment"
+        android:background="#15685C">
+
+        <EditText
+            android:id="@+id/todoName"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:hint="What to do"
+            android:textSize="25sp"
+            android:layout_marginHorizontal="20sp"
+            android:layout_marginTop="30dp"
+            android:background="#9168BA"
+            android:gravity="center" />
+
+        <RadioGroup
+            android:id="@+id/rgButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#74B3EA"
+            android:layout_marginTop="30dp"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/low"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Low"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/normal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:checked="true"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:text="Normal" />
+
+            <RadioButton
+                android:id="@+id/high"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="High"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/dateButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="SELECT DATE"
+                style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="#93D2E7"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:layout_margin="5dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/timeButton"
+                android:layout_width="9dp"
+                android:layout_height="wrap_content"
+                android:text="SELECT TIME"
+                style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:backgroundTint="#93D2E7"
+                android:padding="10dp"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Save"
+            android:backgroundTint="#93D2E7"
+            style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="50dp"
+            android:padding="10dp" />
+    </LinearLayout>
+
+</layout>
