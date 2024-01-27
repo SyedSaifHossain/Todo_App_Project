@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todolist_crud_project.database.TodoDatabase
 import com.example.todolist_crud_project.databinding.FragmentTodoBinding
+import com.example.todolist_crud_project.dialog.TodoDeleteFragment
+import com.example.todolist_crud_project.entities.TodoModel
+import com.example.todolist_crud_project.utils.todo_delete
+import com.example.todolist_crud_project.utils.todo_edit
 import com.example.todolist_crud_project.viewmodels.TodoViewModel
 
 
@@ -24,8 +29,12 @@ class TodoFragment : Fragment() {
     ): View? {
         binding = FragmentTodoBinding.inflate(inflater, container, false)
 
+        val adaptar = TodoAdaptar(::todoAction)
+        binding.recycler.layoutManager = LinearLayoutManager(activity)
+        binding.recycler.adapter = adaptar
+
         todoViewModel.fetchAllTodos().observe(viewLifecycleOwner,{todoList->
-            Toast.makeText(activity,"{$todoList}",Toast.LENGTH_SHORT).show()
+            adaptar.submitList(todoList)
         })
         binding.fabButton.setOnClickListener{
 
@@ -34,4 +43,18 @@ class TodoFragment : Fragment() {
 
         return binding.root
     }
+    private fun todoAction(todoModel: TodoModel, tag:String){
+
+        when(tag){
+            todo_edit-> todoViewModel.updateTodo(todoModel)
+            todo_delete->{
+                TodoDeleteFragment{
+
+                    todoViewModel.deleteTodo(todoModel)
+                }.show(childFragmentManager,"delete")
+            }
+
+        }
+    }
+
 }

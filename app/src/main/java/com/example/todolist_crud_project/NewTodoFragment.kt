@@ -42,7 +42,7 @@ class NewTodoFragment : Fragment() {
             DatePickerDialog { timeStamp ->
 
                 dateInMillis = timeStamp
-                binding.dateButton.text = getFormattedDateTime(dateInMillis, "dd/MM/YYYY")
+                binding.dateButton.text = getFormattedDateTime(dateInMillis, "dd/MM/yyyy")
 
             }.show(childFragmentManager, "date_picker")
 
@@ -56,8 +56,7 @@ class NewTodoFragment : Fragment() {
 
         }
         binding.saveButton.setOnClickListener {
-
-            var todoName = binding.saveButton.text.toString()
+            var todoName = binding.todoName.text.toString()
             if (todoName.isEmpty()) {
                 binding.saveButton.error = "Please provid a valid todo name"
                 return@setOnClickListener

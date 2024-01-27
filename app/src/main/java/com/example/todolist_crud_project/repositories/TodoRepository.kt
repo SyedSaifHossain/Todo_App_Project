@@ -11,10 +11,18 @@ class TodoRepository(val context: Context) {
             init{
                 todoDao = TodoDatabase.getDB(context).getTodoDao()
             }
-    fun intertTodo(todoModel: TodoModel){
+
+    suspend fun intertTodo(todoModel: TodoModel){
             todoDao.addTodo(todoModel)
     }
     fun getAllTodos():LiveData<List<TodoModel>>{
         return todoDao.getAllTodos()
+    }
+    suspend fun updateTodo(todoModel: TodoModel) {
+        return todoDao.updateTodo(todoModel)
+    }
+
+    suspend fun deleteTodo(todoModel: TodoModel) {
+       return todoDao.deleteTodo(todoModel)
     }
 }
