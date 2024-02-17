@@ -7,17 +7,22 @@ import androidx.lifecycle.viewModelScope
 import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.repositories.TodoRepository
 import kotlinx.coroutines.launch
+//@HiltViewModel
 
-class TodoViewModel(application: Application): AndroidViewModel(application) {
+//class TodoViewModel @Inject constructor(val repository : TodoRepository): ViewModel() {
 
-    private val repository : TodoRepository
-    init{
-        repository = TodoRepository(application)
-    }
+   // private val repository : TodoRepository = TodoRepository(application)
 
-    fun insertTodo(todoModel:TodoModel){
+    class TodoViewModel(application: Application): AndroidViewModel(application) {
+
+        private val repository : TodoRepository
+        init{
+            repository = TodoRepository(application)
+        }
+
+        fun insertTodo(todoModel:TodoModel){
         viewModelScope.launch {
-             repository.intertTodo(todoModel)
+             repository.insertTodo(todoModel)
         }
     }
     fun fetchAllTodos():LiveData<List<TodoModel>>{

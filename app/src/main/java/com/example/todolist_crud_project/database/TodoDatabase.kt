@@ -17,7 +17,6 @@ abstract class TodoDatabase : RoomDatabase() {
 
             return todoDatabase ?: synchronized(this) {
                 val db = Room.databaseBuilder(context, TodoDatabase::class.java, "todo_database")
-                    .allowMainThreadQueries()
                     .build()
                 todoDatabase = db
                 db

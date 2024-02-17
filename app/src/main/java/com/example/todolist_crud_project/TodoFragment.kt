@@ -5,19 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.todolist_crud_project.database.TodoDatabase
 import com.example.todolist_crud_project.databinding.FragmentTodoBinding
 import com.example.todolist_crud_project.dialog.TodoDeleteFragment
 import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.utils.todo_delete
 import com.example.todolist_crud_project.utils.todo_edit
 import com.example.todolist_crud_project.viewmodels.TodoViewModel
-
-
+//@AndroidEntryPoint
 class TodoFragment : Fragment() {
 
     private lateinit var binding: FragmentTodoBinding
@@ -56,5 +53,4 @@ class TodoFragment : Fragment() {
 
         }
     }
-
 }

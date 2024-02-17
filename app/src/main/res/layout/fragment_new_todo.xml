@@ -25,6 +25,7 @@
             android:textColorHint="@color/white"
             android:layout_marginHorizontal="20sp"
             android:layout_marginTop="30dp"
+            android:textColor="@color/white"
             android:background="#9168BA"
             android:gravity="center" />
 

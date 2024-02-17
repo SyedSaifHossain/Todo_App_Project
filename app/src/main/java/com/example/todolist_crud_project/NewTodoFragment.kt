@@ -6,17 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.todolist_crud_project.database.TodoDatabase
 import com.example.todolist_crud_project.databinding.FragmentNewTodoBinding
 import com.example.todolist_crud_project.dialog.DatePickerDialog
 import com.example.todolist_crud_project.dialog.TimePickerDialog
 import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.viewmodels.TodoViewModel
+import com.example.todolist_crud_project.workmanagerutils.WorkManagerService
 import getFormattedDateTime
-
+//@AndroidEntryPoint
 class NewTodoFragment : Fragment() {
     private lateinit var binding: FragmentNewTodoBinding
     private var priority = "Normal"
@@ -33,8 +32,7 @@ class NewTodoFragment : Fragment() {
         binding = FragmentNewTodoBinding.inflate(inflater, container, false)
 
         binding.rgButton.setOnCheckedChangeListener { group, checkedId ->
-
-            var groupButton = group.findViewById<RadioButton>(checkedId)
+            val groupButton = group.findViewById<RadioButton>(checkedId)
 
             priority = groupButton.text.toString()
         }
@@ -53,17 +51,17 @@ class NewTodoFragment : Fragment() {
 
                 binding.timeButton.text = getFormattedDateTime(timeInMillis, "hh:mm a")
             }.show(childFragmentManager, "time_picker")
-
         }
         binding.saveButton.setOnClickListener {
-            var todoName = binding.todoName.text.toString()
+            val todoName = binding.todoName.text.toString()
             if (todoName.isEmpty()) {
-                binding.saveButton.error = "Please provid a valid todo name"
+                binding.saveButton.error = "Please provide a valid todo name"
                 return@setOnClickListener
             }
-            var todo = TodoModel(name = todoName, priority = priority, date = dateInMillis, time = timeInMillis)
+            val todo = TodoModel(name = todoName, priority = priority, date = dateInMillis, time = timeInMillis)
             todoViewModel.insertTodo(todo)
 
+            WorkManagerService(requireContext()).schedule(todoName, 5000)
             findNavController().navigate(R.id.todo_list_action)
         }
         return binding.root
