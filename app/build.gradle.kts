@@ -20,11 +20,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-//            }
-//        }
+
 
     }
 
@@ -68,4 +64,7 @@ dependencies {
     //DI Hilt Dependecy
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
+}
+kapt {
+    correctErrorTypes = true
 }
