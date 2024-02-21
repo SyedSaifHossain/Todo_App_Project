@@ -1,24 +1,23 @@
 package com.example.todolist_crud_project.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.repositories.TodoRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-//@HiltViewModel
+import javax.inject.Inject
+@HiltViewModel
 
-//class TodoViewModel @Inject constructor(val repository : TodoRepository): ViewModel() {
-
-   // private val repository : TodoRepository = TodoRepository(application)
-
-    class TodoViewModel(application: Application): AndroidViewModel(application) {
-
-        private val repository : TodoRepository
-        init{
-            repository = TodoRepository(application)
-        }
+class TodoViewModel @Inject constructor(val repository : TodoRepository): ViewModel() {
+    //private val repository = TodoRepository(application)
+//    class TodoViewModel(application: Application): AndroidViewModel(application) {
+//
+//        private val repository : TodoRepository
+//        init{
+//            repository = TodoRepository(application)
+//        }
 
         fun insertTodo(todoModel:TodoModel){
         viewModelScope.launch {
@@ -38,7 +37,6 @@ import kotlinx.coroutines.launch
 
     fun deleteTodo(todoModel: TodoModel) {
         viewModelScope.launch {
-
             repository.deleteTodo(todoModel)
         }
     }

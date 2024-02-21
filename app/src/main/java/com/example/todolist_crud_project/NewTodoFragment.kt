@@ -14,8 +14,9 @@ import com.example.todolist_crud_project.dialog.TimePickerDialog
 import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.viewmodels.TodoViewModel
 import com.example.todolist_crud_project.workmanagerutils.WorkManagerService
+import dagger.hilt.android.AndroidEntryPoint
 import getFormattedDateTime
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class NewTodoFragment : Fragment() {
     private lateinit var binding: FragmentNewTodoBinding
     private var priority = "Normal"

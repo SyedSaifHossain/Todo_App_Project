@@ -14,7 +14,9 @@ import com.example.todolist_crud_project.entities.TodoModel
 import com.example.todolist_crud_project.utils.todo_delete
 import com.example.todolist_crud_project.utils.todo_edit
 import com.example.todolist_crud_project.viewmodels.TodoViewModel
-//@AndroidEntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class TodoFragment : Fragment() {
 
     private lateinit var binding: FragmentTodoBinding
