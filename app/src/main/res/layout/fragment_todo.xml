@@ -11,7 +11,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TodoFragment">
+        tools:context=".TodoFragment"
+        android:background="@drawable/background">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
@@ -26,10 +27,9 @@
             android:layout_alignParentBottom="true"
            android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#8518AC"
+            android:backgroundTint="#8B09A1"
             android:clickable="true"
             android:src="@drawable/add"
-            android:tint="@color/white" />
-
+            android:tint="#FFFFFF" />
     </RelativeLayout>
 </layout>
