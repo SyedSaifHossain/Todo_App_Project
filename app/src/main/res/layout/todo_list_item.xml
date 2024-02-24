@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:background="#03ABEA">
+                android:background="#057FA8">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="@{todo.name}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="25sp"
                     android:layout_toEndOf="@+id/imageView"/>
@@ -59,7 +59,7 @@
                     android:id="@+id/dateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     app:setFormattedDate="@{todo.date}"
                     android:layout_alignStart="@+id/todoText"
                     android:layout_below="@+id/todoText"
@@ -69,7 +69,7 @@
                     android:id="@+id/timeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:layout_below="@id/todoText"
                     app:setFormattedTime="@{todo.time}"
                     android:layout_marginStart="10dp"
@@ -82,10 +82,8 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/timeText"
                     android:layout_centerInParent="true"
-                    android:textStyle="bold"
                     android:checked="@{todo.completed}"
-                    android:layout_marginStart="30dp"
-                    android:textColor="@color/black"/>
+                    android:layout_marginStart="30dp" />
 
                 <TextView
                     android:id="@+id/delete"
